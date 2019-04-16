@@ -50,6 +50,17 @@
             height: 100%;
             font-size: 30px;
         }
+
+        .clear {
+            width: 100px;
+            margin-top: 10px;
+            background: #ccc;
+            padding: -5px 0 5px 0;
+            float: right;
+            cursor: pointer;
+            box-shadow: 0 10px 10px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
     </style>
 </head>
 
@@ -76,39 +87,79 @@
             <tbody>
                 <tr>
                     <td>A</td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td id="sum1">0</td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
+                    </td>
+                    <td><input id="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" value='0'
+                            disabled /></td>
+                    <!-- <td id="sum1">0</td> -->
                 </tr>
                 <tr>
                     <td>B</td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" /></td>
-                    <td id="sum2">0</td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
+                    </td>
+                    <td><input id="sum2" type="text" maxlength="1" size="4" value='0' disabled /></td>
+                    <!-- <td id="sum2">0</td> -->
                 </tr>
             </tbody>
         </table>
+        <div class="bottom">
+            <div class="clear">
+                <span>
+                    <h3>점수초기화</h3>
+                </span>
+            </div>
+
+        </div>
     </div>
     </div>
 
     <script>
         var tot = 0;
+
+        var clear = document.querySelector('.clear');
+        var input_score = document.querySelectorAll('input');
+
+        clear.addEventListener('click', function () {
+            input_score.forEach(function (a) {
+                (a.id === "") ? a.value = null: a.value = 0
+            });
+        });
 
         function inNumber(val) {
             var v = val;
@@ -118,17 +169,29 @@
         }
 
         function getTot(val) {
-            var v = val;
+            // var v = val;
             tot = 0;
 
-            var sum = document.querySelectorAll('.' + v.className);
-            var sum1 = document.querySelector('#' + v.className);
+            // var sum = document.querySelectorAll('.' + v.className);
+            // var sumTot = document.querySelector('#' + v.className);
+
+            var sum = getSumClass(val);
+            var sumTot = getIdClass(val);
+
 
             sum.forEach(function (obj) {
                 tot += (obj.value * 1);
             });
 
-            sum1.textContent = tot;
+            sumTot.value = tot;
+        }
+
+        function getSumClass(v) {
+            return document.querySelectorAll('.' + v.className);
+        }
+
+        function getIdClass(v) {
+            return document.querySelector('#' + v.className);
         }
     </script>
 </body>
