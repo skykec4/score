@@ -107,9 +107,7 @@
                     </td>
                     <td><input class="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="3" />
                     </td>
-                    <td><input id="sum1" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" value='0'
-                            disabled /></td>
-                    <!-- <td id="sum1">0</td> -->
+                    <td><input id="sum1" type="text" maxlength="1" size="4" value='0' disabled /></td>
                 </tr>
                 <tr>
                     <td>B</td>
@@ -134,7 +132,6 @@
                     <td><input class="sum2" type="text" onkeyup="inNumber(this);" maxlength="1" size="4" />
                     </td>
                     <td><input id="sum2" type="text" maxlength="1" size="4" value='0' disabled /></td>
-                    <!-- <td id="sum2">0</td> -->
                 </tr>
             </tbody>
         </table>
@@ -169,15 +166,10 @@
         }
 
         function getTot(val) {
-            // var v = val;
             tot = 0;
-
-            // var sum = document.querySelectorAll('.' + v.className);
-            // var sumTot = document.querySelector('#' + v.className);
 
             var sum = getSumClass(val);
             var sumTot = getIdClass(val);
-
 
             sum.forEach(function (obj) {
                 tot += (obj.value * 1);
