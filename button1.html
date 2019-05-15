@@ -1,0 +1,318 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+
+            margin: 0;
+        }
+
+        .main {
+            display: flex;
+            padding-top: 10rem;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        .square {
+            width: 52px;
+            height: 52px;
+            background-color: #00B0FF;
+            border-radius: 50%;
+            transition: transform .3s ease-out;
+        }
+
+        .expand {
+            transform: scale(4);
+            transition: transform .7s ease-out;
+        }
+
+        .sub {
+            display: none;
+        }
+
+        .main-btn {
+            position: absolute;
+            bottom: 40;
+            width: 52px;
+            height: 52px;
+            background-color: #00B0FF;
+            border-radius: 50%;
+            transition: transform .8s cubic-bezier(.9, 20, .9, 1);
+        }
+
+        .sub-btn {
+            position: absolute;
+            bottom: 40;
+
+        }
+
+        .sub {
+            display: none;
+            position: fixed;
+            align-items: center;
+            flex-direction: column;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #f2f4f5;
+            font-weight: 500;
+            font-family: "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
+            z-index: 2500;
+            transition: opacity .4s cubic-bezier(.645, .045, .355, 1);
+            padding-top: 230px
+        }
+
+        .zindex {
+            position: fixed;
+            z-index: 2501;
+        }
+
+        .header {
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+
+            background: lightblue;
+        }
+
+        .closeModal {
+            position: fixed;
+            top: 20;
+            right: 20;
+            cursor: pointer;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        .sr_pay {
+            transform: rotate(300deg) translateY(-20px) rotate(-300deg)
+        }
+
+        .sr_lens {
+            transform: rotate(310deg) translateY(-131px) rotate(-310deg);
+        }
+
+        .sr_music {
+            transform: rotate(343deg) translateY(-45px) rotate(-343deg)
+        }
+
+        .sr_mic {
+            transform: rotate(70deg) translateY(-200px) rotate(-70deg)
+        }
+
+        .sr_around {
+            transform: rotate(85deg) translateY(-230px) rotate(-85deg)
+        }
+
+        .sr_search {
+            transform: rotate(100deg) translateY(-260px) rotate(-100deg)
+        }
+
+        .asdf {
+            background: white;
+            position: absolute;
+            margin-top: 40%;
+            padding-top: 10%;
+            width: 100%;
+            height: 50%;
+            transition: transform .3s ease-out;
+            animation-name: asdf;
+            animation-duration: 0.4s;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+        }
+
+        @keyframes asdf {
+            from {
+                transform: scale(0.5);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.js"></script>
+<!-- <script src="/scripts/tap-gesture.js"></script> -->
+
+<body class="center-center">
+    <div class='main'>
+        main
+        <div class="main-btn square"></div>
+    </div>
+
+    <div class='sub'>
+        <div class='header'>
+            <h3>heaader</h3>
+            <div class='closeModal'>X</div>
+        </div>
+        <section>sub</section>
+        <div class='asdf'>
+            <ul class="sr_service_list">
+                <!-- <li class="sr_service_item sr_pay">
+                    <a href="#" class="sr_service" data-ios-scheme="naversearchapp"
+                        data-ios-query="inappbrowser%3Fversion%3D30%26url%3Dhttps%253A%252F%252Fm.pay.naver.com%252Foffline%252Fzp%252Fv1%252Fauth%252Fnaver-app%253Fsurl%253Dnaverapp%25253A%25252F%25252Fclosewindow%2526rurl%253D"
+                        data-ios-install="393499958"
+                        data-ios-universal-fullurl="https://naverapp.m.naver.com/?urlScheme=naversearchapp%3A%2F%2Finappbrowser%3Fversion%3D30%26url%3Dhttps%253A%252F%252Fm.pay.naver.com%252Foffline%252Fzp%252Fv1%252Fauth%252Fnaver-app%253Fsurl%253Dnaverapp%25253A%25252F%25252Fclosewindow%2526rurl%253D"
+                        data-android-scheme="naversearchapp"
+                        data-android-query="inappbrowser?version=30&amp;url=https%3A%2F%2Fm.pay.naver.com%2Foffline%2Fzp%2Fv1%2Fauth%2Fnaver-app%3Fsurl%3Dnaverapp%253A%252F%252Fclosewindow%26rurl%3D"
+                        data-android-package="com.nhn.android.search" data-trigger-launchapp=""
+                        data-nclick-code="grd.qrcode" onclick="return false;">
+                        QR결제
+                    </a>
+                </li>
+                <li class="sr_service_item sr_lens">
+                    <a href="#" class="sr_service" data-ios-scheme="naversearchapp"
+                        data-ios-query="search?qmenu=searchbyimage&amp;version=26" data-ios-install="393499958"
+                        data-ios-universal-fullurl="https://naverapp.m.naver.com/?urlScheme=naversearchapp%3A%2F%2Fsearch%3Fqmenu%3Dsearchbyimage%26version%3D26"
+                        data-android-scheme="naversearchapp"
+                        data-android-query="search?qmenu=searchbyimage&amp;version=26"
+                        data-android-package="com.nhn.android.search" data-trigger-launchapp=""
+                        data-nclick-code="grd.sbi" onclick="return false;">
+                        렌즈
+                    </a>
+                </li>
+                <li class="sr_service_item sr_music">
+                    <a href="#" class="sr_service" data-ios-scheme="naversearchapp"
+                        data-ios-query="search?qmenu=music&amp;version=26" data-ios-install="393499958"
+                        data-ios-universal-fullurl="https://naverapp.m.naver.com/?urlScheme=naversearchapp%3A%2F%2Fsearch%3Fqmenu%3Dmusic%26version%3D26"
+                        data-android-scheme="naversearchapp" data-android-query="search?qmenu=music&amp;version=26"
+                        data-android-package="com.nhn.android.search" data-trigger-launchapp=""
+                        data-nclick-code="grd.music" onclick="return false;">
+                        음악
+                    </a>
+                </li> -->
+                <li class="sr_service_item sr_mic">
+                    <a href="#" class="sr_service" data-ios-scheme="naversearchapp"
+                        data-ios-query="search?qmenu=voicerecg&amp;version=26" data-ios-install="393499958"
+                        data-ios-universal-fullurl="https://naverapp.m.naver.com/?urlScheme=naversearchapp%3A%2F%2Fsearch%3Fqmenu%3Dvoicerecg%26version%3D26"
+                        data-android-scheme="naversearchapp" data-android-query="search?qmenu=voicerecg&amp;version=26"
+                        data-android-package="com.nhn.android.search" data-trigger-launchapp=""
+                        data-nclick-code="grd.voice" onclick="return false;">
+                        음성
+                    </a>
+                </li>
+                <li class="sr_service_item sr_around">
+                    <a href="https://s.search.naver.com/p/around/search.naver?" class="sr_service"
+                        data-nclick-code="grd.around">
+                        내주변</a>
+                </li>
+                <li class="sr_service_item sr_search">
+                    <a href="#" class="sr_service" data-trigger-search="" data-nclick-code="grd.search">
+                        검색
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sub-btn square"></div>
+    </div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>
+    var square = document.querySelector('.square');
+    var closeModal = document.querySelector('.closeModal');
+    var asdf = document.querySelector('.asdf');
+
+
+    var manager = new Hammer.Manager(square);
+    var manager2 = new Hammer.Manager(closeModal);
+
+    var Tap = new Hammer.Tap({
+        taps: 1
+    });
+    var Tap2 = new Hammer.Tap({
+        taps: 1
+    });
+
+
+    manager.add(Tap);
+    manager2.add(Tap2);
+    console.log(manager, manager2);
+
+    manager.on('tap', function (e) {
+
+        if (toggleModal(e.target.classList, 'expand') < 0) {
+            //$('.square').removeClass('expand');
+            e.target.classList.toggle('expand');
+            //$('.asdf').addClass('expand');
+
+            setTimeout(function () {
+                $('.sub').css('display', 'flex');
+                $('.main-btn.square').addClass('zindex');
+            }, 500)
+
+
+        } else {
+            $('.square').removeClass('expand');
+            setTimeout(function () {
+                $('.sub').css('display', 'none');
+                $('.main-btn.square').removeClass('zindex');
+            }, 500);
+        }
+
+    })
+
+    manager2.on('tap', function (e) {
+
+
+        $('.square').removeClass('expand');
+        setTimeout(function () {
+            $('.sub').css('display', 'none');
+            $('.main-btn.square').removeClass('zindex');
+        }, 500);
+
+        //ElementUpdate();
+    })
+
+
+    function ElementUpdate(transform) {
+        var value = [
+            'scale(1)',
+        ];
+
+        value = value.join(" ");
+
+        square.style.transform = value;
+    }
+
+    $(document).ready(function () {
+        $('.closeModal').click(function () {
+
+        })
+    });
+
+    function toggleModal(a, f) {
+        return a.value.split(' ').indexOf(f);
+
+    }
+</script>
+<script>
+
+</script>
+
+</html>
