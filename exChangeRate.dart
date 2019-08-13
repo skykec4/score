@@ -83,7 +83,7 @@ class Rate {
   }
 }
 
-Future<List<Rate>> fetchPhotos(http.Client client) async {
+Future<List<Rate>> fetchPhotos() async {
   var now = new DateTime.now();
 
   String year = now.year.toString();
@@ -91,7 +91,7 @@ Future<List<Rate>> fetchPhotos(http.Client client) async {
   String day = now.day.toString();
 
 
-  final response = await client.post(
+  final response = await http.post(
       'https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=nHpyy6i0GGVLJeExq4ZrZnf13tWQ89Lk&searchdate=$year$month$day&data=AP01',
       headers: {
         HttpHeaders.contentTypeHeader: 'application/json;',
@@ -114,9 +114,9 @@ class Some extends StatelessWidget {
 //  final LocalStorage storage = new LocalStorage('key');
 
 //  final Future<Rate> rate;
-  dynamic rate;
+//  dynamic rate;
 
-  Some({Key key, this.rate}) : super(key: key);
+//  Some({Key key, this.rate}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +126,7 @@ class Some extends StatelessWidget {
       ),
       body: Center(
         child: FutureBuilder<List<Rate>>(
-            future: fetchPhotos(http.Client()),
+            future: fetchPhotos(),
             builder: (context, snapshot) {
               if (snapshot.hasError) {
                 print('엥?' + snapshot.error);
