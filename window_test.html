@@ -18,9 +18,9 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script>
-   var user_agent = window.navigator.userAgent;
   
-  (".user_agent").html(user_agent);
+    var user_agent = document.querySelector('.user_agent');
+    user_agent.html = window.navigator.userAgent;
   
 </script>
 </html>
