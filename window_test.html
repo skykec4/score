@@ -13,7 +13,8 @@
 
 <body class="center-center">
     <div>ho</div>
-  <div class="user_agent"></div>
+    <div class="user_agent"></div>
+    <div class="appVersion"></div>
 
 </body>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -21,7 +22,9 @@
 <script>
   
     var user_agent = document.querySelector('.user_agent');
+    var appVersion = document.querySelector('.appVersion');
     user_agent.innerText = window.navigator.userAgent;
+        appVersion.innerText = window.navigator.appVersion;
   
 </script>
 </html>
